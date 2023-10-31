@@ -1,0 +1,124 @@
+{
+  "bus": [
+    {
+      "bus-number": "113-25",
+      "time": "06:30",
+      "stopover": "기공, 자이",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "250-20",
+      "time": "06:35",
+      "stopover": "유원, 자이",
+      "last-stop": "남마산"
+    },
+    {
+      "bus-number": "250-23",
+      "time": "07:30",
+      "stopover": "기공, 자이",
+      "last-stop": "남마산"
+    },
+    {
+      "bus-number": "113-29",
+      "time": "07:35",
+      "stopover": "유원",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "113-34",
+      "time": "08:30",
+      "stopover": "유원, 자이",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "113-38",
+      "time": "09:25",
+      "stopover": "유원, 자이",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "113-33",
+      "time": "10:20",
+      "stopover": "기공",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "250-20",
+      "time": "11:10",
+      "stopover": "유원, 자이",
+      "last-stop": "남마산"
+    },
+    {
+      "bus-number": "113-25",
+      "time": "11:35",
+      "stopover": "기공, 자이",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "113-34",
+      "time": "13:45",
+      "stopover": "유원, 자이",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "250-23",
+      "time": "14:00",
+      "stopover": "기공, 자이",
+      "last-stop": "남마산"
+    },
+    {
+      "bus-number": "113-28",
+      "time": "14:15",
+      "stopover": "유원",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "113-31",
+      "time": "15:25",
+      "stopover": "기공",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "250-20",
+      "time": "16:10",
+      "stopover": "유원, 자이",
+      "last-stop": "남마산"
+    },
+    {
+      "bus-number": "113-22",
+      "time": "16:40",
+      "stopover": "기공, 자이",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "113-34",
+      "time": "17:25",
+      "stopover": "유원, 자이",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "250-20",
+      "time": "19:00",
+      "stopover": "유원, 자이",
+      "last-stop": "남마산"
+    },
+    {
+      "bus-number": "113-31",
+      "time": "19:05",
+      "stopover": "기공",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "113-39",
+      "time": "20:30",
+      "stopover": "유원, 자이",
+      "last-stop": "마산"
+    },
+    {
+      "bus-number": "113-37",
+      "time": "01:30",
+      "stopover": "기공, 자이",
+      "last-stop": "마산"
+    }
+  ]
+}
