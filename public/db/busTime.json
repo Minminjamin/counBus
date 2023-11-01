@@ -119,6 +119,66 @@
       "time": "01:30",
       "stopover": "기공, 자이",
       "last-stop": "마산"
+    },
+    {
+      "bus-number": "777-42",
+      "time": "08:10",
+      "stopover": "평기, 무등, 서촌",
+      "last-stop": "동촌"
+    },
+    {
+      "bus-number": "777-30",
+      "time": "14:00",
+      "stopover": "부촌, 칠서공단",
+      "last-stop": "칠원"
+    },
+    {
+      "bus-number": "777-45",
+      "time": "15:20",
+      "stopover": "평기, 무등, 서촌",
+      "last-stop": "동촌"
+    },
+    {
+      "bus-number": "777-41",
+      "time": "17:20",
+      "stopover": "평기, 서촌",
+      "last-stop": "동촌"
+    },
+    {
+      "bus-number": "777-46",
+      "time": "07:01",
+      "stopover": "운곡, 산인면사무소, 함안군청",
+      "last-stop": "함안 T/R"
+    },
+    {
+      "bus-number": "777-43",
+      "time": "08:40",
+      "stopover": "운곡, 산인면사무소, 함안군청",
+      "last-stop": "함안 T/R"
+    },
+    {
+      "bus-number": "777-47",
+      "time": "11:00",
+      "stopover": "운곡, 산인면사무소, 함안군청",
+      "last-stop": "함안 T/R"
+    },
+    {
+      "bus-number": "777-30",
+      "time": "12:00",
+      "stopover": "운곡, 산인면사무소, 함안군청",
+      "last-stop": "함안 T/R"
+    },
+    {
+      "bus-number": "777-43",
+      "time": "16:00",
+      "stopover": "운곡, 산인면사무소, 함안군청",
+      "last-stop": "함안 T/R"
+    },
+    {
+      "bus-number": "777-40",
+      "time": "17:55",
+      "stopover": "운곡, 산인면사무소, 함안군청",
+      "last-stop": "함안 T/R"
     }
   ]
 }
