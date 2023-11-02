@@ -24,15 +24,21 @@ const Login = () => {
     setError({});
 
     if (id.current?.value && pw.current?.value) {
-      const idValue: string = id.current.value;
-      const pwValue: string = pw.current.value;
+      const idValue: string = id.current.value.trim();
+      const pwValue: string = pw.current.value.trim();
 
       try {
         await signInWithEmailAndPassword(
           auth,
           `${idValue}@robotsh.com`,
           pwValue
-        );
+        ).then(() => {
+          if (idValue.slice(-1) === "d") {
+            navitage("/dormitory");
+          } else if (idValue.slice(-1) === "c") {
+            navitage("/communte");
+          }
+        });
       } catch (err: any) {
         if (
           err.code === "auth/user-not-found" ||
