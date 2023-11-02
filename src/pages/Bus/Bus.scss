@@ -1,0 +1,55 @@
+.wrap {
+  width: 100%;
+  height: 100%;
+
+  .busStopName {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    background: rgba(106, 202, 131, 0.13);
+    border-bottom: solid 1px #6aca83;
+
+    h1 {
+      color: #11c214;
+    }
+  }
+
+  .busInfo {
+    .busType {
+      display: block;
+      background: #edeef0;
+      padding: 1% 0%;
+      padding-left: 2%;
+      color: rgba(0, 0, 0, 0.38);
+      font-family: Inter;
+    }
+
+    article {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.17);
+      padding: 0 2%;
+      padding-right: 4%;
+
+      h2 {
+        color: #04c104;
+        font-family: Inter;
+        font-weight: normal;
+      }
+
+      span {
+        color: gray;
+      }
+
+      span.time {
+        color: black;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
