@@ -12,7 +12,7 @@ const Warning = ({
   const navitage = useNavigate();
 
   return (
-    <div className="wrap">
+    <div className="wraningWrap">
       <section>
         <h2>경고</h2>
         <div className="wraning">{children}</div>

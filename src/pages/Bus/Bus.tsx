@@ -23,7 +23,7 @@ const Bus = () => {
   }, []);
 
   return (
-    <div className="wrap">
+    <div className="busWrap">
       <section className="busStopName">
         <h1>경남로봇고등학교</h1>
       </section>
