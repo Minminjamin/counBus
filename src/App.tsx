@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.scss";
+import ApplicationForm from "./pages/ApplicationForm/ApplicationForm";
 import Bus from "./pages/Bus/Bus";
 import Commute from "./pages/Commute/Commute";
 import Dormitory from "./pages/Dormitory/Dormitory";
@@ -13,7 +14,8 @@ function App() {
       {/* <Login /> */}
       {/* <Commute /> */}
       {/* <Dormitory /> */}
-      <Bus />
+      {/* <Bus /> */}
+      <ApplicationForm />
     </div>
   );
 }
