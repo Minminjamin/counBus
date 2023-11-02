@@ -17,6 +17,7 @@ function App() {
         <Route path="/dormitory" element={<Dormitory />} />
         <Route path="/commute" element={<Commute />} />
         <Route path="/bus" element={<Bus />} />
+        <Route path="/applicationForm" element={<ApplicationForm />} />
       </Routes>
 
       {/* <Login /> */}
