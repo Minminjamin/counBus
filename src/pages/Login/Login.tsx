@@ -36,7 +36,7 @@ const Login = () => {
           if (idValue.slice(-1) === "d") {
             navitage("/dormitory");
           } else if (idValue.slice(-1) === "c") {
-            navitage("/communte");
+            navitage("/commute");
           }
         });
       } catch (err: any) {
