@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Warning from "../../components/Warning/Warning";
+import Bus from "../Bus/Bus";
 import "./Commute.scss";
 
 const Commute = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(true);
+
+  useEffect(() => {
+    console.log(isOpen);
+  }, [isOpen]);
+
   return (
     <div className="wrap">
-      <Warning>
-        <span>일과 중에 온라인에 접속하셨습니다.</span>
-        <span>담임 선생님의 허락을 받으셨습니까?</span>
-      </Warning>
+      {isOpen ? (
+        <Warning setIsOpen={setIsOpen}>
+          <span>일과 중에 온라인에 접속하셨습니다.</span>
+          <span>담임 선생님의 허락을 받으셨습니까?</span>
+        </Warning>
+      ) : (
+        <Bus />
+      )}
     </div>
   );
 };
