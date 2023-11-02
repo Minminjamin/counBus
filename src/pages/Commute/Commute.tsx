@@ -6,10 +6,6 @@ import "./Commute.scss";
 const Commute = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
 
-  useEffect(() => {
-    console.log(isOpen);
-  }, [isOpen]);
-
   return (
     <div className="wrap">
       {isOpen ? (
