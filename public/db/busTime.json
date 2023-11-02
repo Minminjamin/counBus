@@ -1,184 +1,184 @@
 {
   "bus": [
     {
-      "bus-number": "113-25",
+      "bus_number": "113-25",
       "time": "06:30",
       "stopover": "기공, 자이",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "250-20",
+      "bus_number": "250-20",
       "time": "06:35",
       "stopover": "유원, 자이",
-      "last-stop": "남마산"
+      "last_stop": "남마산"
     },
     {
-      "bus-number": "250-23",
+      "bus_number": "250-23",
       "time": "07:30",
       "stopover": "기공, 자이",
-      "last-stop": "남마산"
+      "last_stop": "남마산"
     },
     {
-      "bus-number": "113-29",
+      "bus_number": "113-29",
       "time": "07:35",
       "stopover": "유원",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "113-34",
+      "bus_number": "113-34",
       "time": "08:30",
       "stopover": "유원, 자이",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "113-38",
+      "bus_number": "113-38",
       "time": "09:25",
       "stopover": "유원, 자이",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "113-33",
+      "bus_number": "113-33",
       "time": "10:20",
       "stopover": "기공",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "250-20",
+      "bus_number": "250-20",
       "time": "11:10",
       "stopover": "유원, 자이",
-      "last-stop": "남마산"
+      "last_stop": "남마산"
     },
     {
-      "bus-number": "113-25",
+      "bus_number": "113-25",
       "time": "11:35",
       "stopover": "기공, 자이",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "113-34",
+      "bus_number": "113-34",
       "time": "13:45",
       "stopover": "유원, 자이",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "250-23",
+      "bus_number": "250-23",
       "time": "14:00",
       "stopover": "기공, 자이",
-      "last-stop": "남마산"
+      "last_stop": "남마산"
     },
     {
-      "bus-number": "113-28",
+      "bus_number": "113-28",
       "time": "14:15",
       "stopover": "유원",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "113-31",
+      "bus_number": "113-31",
       "time": "15:25",
       "stopover": "기공",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "250-20",
+      "bus_number": "250-20",
       "time": "16:10",
       "stopover": "유원, 자이",
-      "last-stop": "남마산"
+      "last_stop": "남마산"
     },
     {
-      "bus-number": "113-22",
+      "bus_number": "113-22",
       "time": "16:40",
       "stopover": "기공, 자이",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "113-34",
+      "bus_number": "113-34",
       "time": "17:25",
       "stopover": "유원, 자이",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "250-20",
+      "bus_number": "250-20",
       "time": "19:00",
       "stopover": "유원, 자이",
-      "last-stop": "남마산"
+      "last_stop": "남마산"
     },
     {
-      "bus-number": "113-31",
+      "bus_number": "113-31",
       "time": "19:05",
       "stopover": "기공",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "113-39",
+      "bus_number": "113-39",
       "time": "20:30",
       "stopover": "유원, 자이",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "113-37",
+      "bus_number": "113-37",
       "time": "01:30",
       "stopover": "기공, 자이",
-      "last-stop": "마산"
+      "last_stop": "마산"
     },
     {
-      "bus-number": "777-42",
+      "bus_number": "777-42",
       "time": "08:10",
       "stopover": "평기, 무등, 서촌",
-      "last-stop": "동촌"
+      "last_stop": "동촌"
     },
     {
-      "bus-number": "777-30",
+      "bus_number": "777-30",
       "time": "14:00",
       "stopover": "부촌, 칠서공단",
-      "last-stop": "칠원"
+      "last_stop": "칠원"
     },
     {
-      "bus-number": "777-45",
+      "bus_number": "777-45",
       "time": "15:20",
       "stopover": "평기, 무등, 서촌",
-      "last-stop": "동촌"
+      "last_stop": "동촌"
     },
     {
-      "bus-number": "777-41",
+      "bus_number": "777-41",
       "time": "17:20",
       "stopover": "평기, 서촌",
-      "last-stop": "동촌"
+      "last_stop": "동촌"
     },
     {
-      "bus-number": "777-46",
+      "bus_number": "777-46",
       "time": "07:01",
       "stopover": "운곡, 산인면사무소, 함안군청",
-      "last-stop": "함안 T/R"
+      "last_stop": "함안 T/R"
     },
     {
-      "bus-number": "777-43",
+      "bus_number": "777-43",
       "time": "08:40",
       "stopover": "운곡, 산인면사무소, 함안군청",
-      "last-stop": "함안 T/R"
+      "last_stop": "함안 T/R"
     },
     {
-      "bus-number": "777-47",
+      "bus_number": "777-47",
       "time": "11:00",
       "stopover": "운곡, 산인면사무소, 함안군청",
-      "last-stop": "함안 T/R"
+      "last_stop": "함안 T/R"
     },
     {
-      "bus-number": "777-30",
+      "bus_number": "777-30",
       "time": "12:00",
       "stopover": "운곡, 산인면사무소, 함안군청",
-      "last-stop": "함안 T/R"
+      "last_stop": "함안 T/R"
     },
     {
-      "bus-number": "777-43",
+      "bus_number": "777-43",
       "time": "16:00",
       "stopover": "운곡, 산인면사무소, 함안군청",
-      "last-stop": "함안 T/R"
+      "last_stop": "함안 T/R"
     },
     {
-      "bus-number": "777-40",
+      "bus_number": "777-40",
       "time": "17:55",
       "stopover": "운곡, 산인면사무소, 함안군청",
-      "last-stop": "함안 T/R"
+      "last_stop": "함안 T/R"
     }
   ]
 }
