@@ -11,9 +11,14 @@
     padding: 3%;
     border-radius: 5px;
 
-    &:nth-of-type(1) {
-      margin-bottom: 28px;
+    &:nth-of-type(2) {
+      margin-top: 28px;
     }
+  }
+
+  .checkInput {
+    margin-top: 10px;
+    color: red;
   }
 
   button {

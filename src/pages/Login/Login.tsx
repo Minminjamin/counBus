@@ -1,13 +1,69 @@
-import React from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../libs/Firebase";
 import "./Login.scss";
 
+interface Error {
+  id?: string;
+  pw?: string;
+  check?: string;
+}
+
 const Login = () => {
+  const navitage = useNavigate();
+
+  const id = useRef<HTMLInputElement | null>(null);
+  const pw = useRef<HTMLInputElement | null>(null);
+
+  const [error, setError] = useState<Error>({});
+
+  const onHanldeLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setError({});
+
+    if (id.current?.value && pw.current?.value) {
+      const idValue: string = id.current.value;
+      const pwValue: string = pw.current.value;
+
+      try {
+        await signInWithEmailAndPassword(
+          auth,
+          `${idValue}@robotsh.com`,
+          pwValue
+        );
+      } catch (err: any) {
+        if (
+          err.code === "auth/user-not-found" ||
+          err.code === "auth/invalid-login-credentials"
+        ) {
+          setError((prev) => ({
+            ...prev,
+            check: "id와 password를 다시 한 번 확인해주세요.",
+          }));
+        }
+      }
+    }
+
+    if (!id.current?.value) {
+      setError((prev) => ({ ...prev, id: "id를 입력해주세요." }));
+    }
+    if (!pw.current?.value) {
+      setError((prev) => ({ ...prev, pw: "password를 입력해주세요." }));
+    }
+  };
+
   return (
-    <div className="wrap">
-      <input placeholder="id" />
-      <input placeholder="password" />
-      <button>Login</button>
-    </div>
+    <form className="wrap" onSubmit={onHanldeLogin}>
+      <input placeholder="id" ref={id} />
+      {error.id && <span className="checkInput">{error.id}</span>}
+      <input placeholder="password" ref={pw} />
+      {error.pw && <span className="checkInput">{error.pw}</span>}
+
+      {error.check && <span className="checkInput">{error.check}</span>}
+      <button type="submit">Login</button>
+    </form>
   );
 };
 
