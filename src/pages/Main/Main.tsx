@@ -5,21 +5,31 @@ import { useNavigate } from "react-router-dom";
 const path: string = process.env.PUBLIC_URL;
 
 const Main = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    setTimeout(() => {
-      navigate("/login");
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigate("/login");
+  //   }, 3000);
+  // }, []);
 
   return (
     <main>
-      <img src={`${path}/image/main/logo.png`} alt="counBus 로고 이미지" />
-      <article>
+      <section className="logoImg">
+        <img
+          src={`${path}/image/main/bus.png`}
+          alt="counBus 로고 버스 이미지"
+          className="bus"
+        />
+        <img
+          src={`${path}/image/main/load.png`}
+          alt="counBus 로고 도로 이미지"
+        />
+      </section>
+      <section className="tag">
         <h1>CounBus</h1>
         <span>이공일(201)</span>
-      </article>
+      </section>
     </main>
   );
 };
