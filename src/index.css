@@ -17,3 +17,13 @@ code {
   padding: 0;
   box-sizing: border-box;
 }
+
+body::-webkit-scrollbar {
+  width: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 20%;
+  background: #04c104;
+  border-radius: 10px;
+}
