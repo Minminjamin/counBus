@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Warning from "../../components/Warning/Warning";
-import Bus from "../Bus/Bus";
+import Bus from "../../components/Bus/Bus";
 import "./Commute.scss";
 
 const Commute = () => {

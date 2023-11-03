@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Warning from "../../components/Warning/Warning";
 import "./Dormitory.scss";
-import Bus from "../Bus/Bus";
-import ApplicationForm from "../ApplicationForm/ApplicationForm";
+import Bus from "../../components/Bus/Bus";
+import ApplicationForm from "../../components/ApplicationForm/ApplicationForm";
 
 const Dormitory = () => {
   const [isOpen, setIsOpen] = useState(true);
