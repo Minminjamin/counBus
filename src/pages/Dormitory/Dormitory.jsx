@@ -26,7 +26,7 @@ const Dormitory = () => {
       ) : isBus ? (
         <Bus />
       ) : (
-        <ApplicationForm />
+        <ApplicationForm setIsBus={setIsBus} />
       )}
     </div>
   );

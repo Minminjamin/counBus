@@ -2,7 +2,11 @@ import React, { useRef } from "react";
 import "./ApplicationForm.scss";
 import emailjs from "@emailjs/browser";
 
-const ApplicationForm = () => {
+const ApplicationForm = ({
+  setIsBus,
+}: {
+  setIsBus: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const form = useRef<HTMLFormElement>(null);
 
   const onHandleEmailSubmit = (e: React.FormEvent) => {
@@ -17,10 +21,11 @@ const ApplicationForm = () => {
           process.env.REACT_APP_EMAILJS_PUBLIC_KEY as string
         )
         .then(
-          function (response) {
-            console.log("SUCCESS!", response.status, response.text);
+          () => {
+            setIsBus(true);
+            // console.log("SUCCESS!", response.status, response.text);
           },
-          function (error) {
+          (error) => {
             console.log("FAILED...", error);
           }
         );
