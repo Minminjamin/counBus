@@ -18,7 +18,7 @@ const Warning = ({
         <div className="wraning">{children}</div>
 
         <div className="btn">
-          <span onClick={() => navitage("/")}>취소</span>
+          <span onClick={() => navitage("/permission")}>취소</span>
           <span onClick={() => setIsOpen(false)}>계속</span>
         </div>
       </section>

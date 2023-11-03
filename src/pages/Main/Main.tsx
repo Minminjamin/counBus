@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 const path: string = process.env.PUBLIC_URL;
 
 const Main = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     navigate("/login");
-  //   }, 3000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/login");
+    }, 3000);
+  }, []);
 
   return (
     <main>

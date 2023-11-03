@@ -5,6 +5,7 @@ import Dormitory from "./pages/Dormitory/Dormitory";
 import Login from "./pages/Login/Login";
 import Main from "./pages/Main/Main";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import Permission from "./pages/Permission/Permission";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dormitory" element={<Dormitory />} />
         <Route path="/commute" element={<Commute />} />
+        <Route path="/permission" element={<Permission />} />
       </Routes>
     </div>
   );
