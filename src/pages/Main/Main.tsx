@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Main.scss";
 import { useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const path: string = process.env.PUBLIC_URL;
 
@@ -8,9 +9,25 @@ const Main = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTimeout(() => {
-      navigate("/login");
-    }, 3000);
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        if (user.email?.split("@")[0].slice(-1) === "d") {
+          navigate("/dormitory");
+        } else {
+          navigate("/commute");
+        }
+      } else {
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
+      }
+
+      return () => {
+        unsubscribe();
+      };
+    });
   }, []);
 
   return (
