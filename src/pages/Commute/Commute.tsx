@@ -18,6 +18,10 @@ const Commute = () => {
         navigate("/login");
       }
 
+      if (user && user.email?.split("@")[0].slice(-1) === "d") {
+        navigate("/dormitory");
+      }
+
       return () => {
         unsubscribe();
       };
