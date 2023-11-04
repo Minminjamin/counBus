@@ -2,9 +2,27 @@ import React, { useEffect, useState } from "react";
 import Warning from "../../components/Warning/Warning";
 import Bus from "../../components/Bus/Bus";
 import "./Commute.scss";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Commute = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate("/login");
+      }
+
+      return () => {
+        unsubscribe();
+      };
+    });
+  }, []);
 
   return (
     <div className="wrap">

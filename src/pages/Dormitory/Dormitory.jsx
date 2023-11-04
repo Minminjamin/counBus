@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Warning from "../../components/Warning/Warning";
 import "./Dormitory.scss";
 import Bus from "../../components/Bus/Bus";
 import ApplicationForm from "../../components/ApplicationForm/ApplicationForm";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Dormitory = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isBus, setIsBus] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate("/login");
+      }
+
+      return () => {
+        unsubscribe();
+      };
+    });
+  }, []);
 
   const onHandleApplied = () => {
     setIsBus(true);
