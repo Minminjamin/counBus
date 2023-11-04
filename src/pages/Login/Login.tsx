@@ -1,4 +1,8 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../libs/Firebase";
@@ -11,12 +15,32 @@ interface Error {
 }
 
 const Login = () => {
-  const navitage = useNavigate();
+  const navigate = useNavigate();
 
   const id = useRef<HTMLInputElement | null>(null);
   const pw = useRef<HTMLInputElement | null>(null);
 
   const [error, setError] = useState<Error>({});
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        if (user.email?.split("@")[0].slice(-1) === "d") {
+          navigate("/dormitory");
+        } else {
+          navigate("/commute");
+        }
+      } else {
+        return null;
+      }
+
+      return () => {
+        unsubscribe();
+      };
+    });
+  }, []);
 
   const onHanldeLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,9 +58,9 @@ const Login = () => {
           pwValue
         ).then(() => {
           if (idValue.slice(-1) === "d") {
-            navitage("/dormitory");
+            navigate("/dormitory");
           } else if (idValue.slice(-1) === "c") {
-            navitage("/commute");
+            navigate("/commute");
           }
         });
       } catch (err: any) {
