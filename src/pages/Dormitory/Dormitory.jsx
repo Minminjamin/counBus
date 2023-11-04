@@ -20,6 +20,10 @@ const Dormitory = () => {
         navigate("/login");
       }
 
+      if (user && user.email?.split("@")[0].slice(-1) === "ㅊ") {
+        navigate("/commute");
+      }
+
       return () => {
         unsubscribe();
       };
