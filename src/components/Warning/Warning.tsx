@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import "./Warning.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { isAllow } from "../redux/isAllowSlice/isAllowSlice";
+import { isAllow } from "../../redux/isAllowSlice/isAllowSlice";
 
 const Warning = ({ children }: { children: ReactNode }) => {
   const navitage = useNavigate();

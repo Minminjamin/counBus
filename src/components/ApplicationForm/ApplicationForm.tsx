@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./ApplicationForm.scss";
 import emailjs from "@emailjs/browser";
 import { useDispatch } from "react-redux";
-import { isApplicate } from "../redux/isApplicateSlice/isApplicateSlice";
+import { isApplicate } from "../../redux/isApplicateSlice/isApplicateSlice";
 
 const ApplicationForm = () => {
   const dispatch = useDispatch();

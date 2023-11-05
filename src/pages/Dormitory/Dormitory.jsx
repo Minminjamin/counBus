@@ -6,8 +6,8 @@ import ApplicationForm from "../../components/ApplicationForm/ApplicationForm";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { isAllow } from "../../components/redux/isAllowSlice/isAllowSlice";
-import { isApplicate } from "../../components/redux/isApplicateSlice/isApplicateSlice";
+import { isAllow } from "../../redux/isAllowSlice/isAllowSlice";
+import { isApplicate } from "../../redux/isApplicateSlice/isApplicateSlice";
 
 const Dormitory = () => {
   const dispatch = useDispatch();
