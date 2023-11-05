@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import "./ApplicationForm.scss";
 import emailjs from "@emailjs/browser";
+import { useDispatch } from "react-redux";
+import { isApplicate } from "../redux/isApplicateSlice/isApplicateSlice";
 
-const ApplicationForm = ({
-  setIsBus,
-}: {
-  setIsBus: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const ApplicationForm = () => {
+  const dispatch = useDispatch();
+
   const form = useRef<HTMLFormElement>(null);
 
   const onHandleEmailSubmit = (e: React.FormEvent) => {
@@ -22,7 +22,7 @@ const ApplicationForm = ({
         )
         .then(
           () => {
-            setIsBus(true);
+            dispatch(isApplicate());
             // console.log("SUCCESS!", response.status, response.text);
           },
           (error) => {
