@@ -37,37 +37,55 @@ const ApplicationForm = () => {
       <h1>외출 · 외박 신청서 </h1>
 
       <div className="inputForm">
-        <label>이름</label>
+        <label>
+          이름 <span className="check">*</span>
+        </label>
         <input type="text" placeholder="내 답변" name="from_name" />
       </div>
 
       <div className="inputForm">
-        <label>외출, 외박</label>
-        <input type="text" placeholder="내 답변" name="type" />
+        <label>
+          외출, 외박 <span className="check">*</span>
+        </label>
+        <select name="type">
+          <option value="외출">외출</option>
+          <option value="외박">외박</option>
+        </select>
+        {/* <input type="text" placeholder="내 답변" name="type" /> */}
       </div>
 
       <div className="inputForm">
-        <label>출사 일시</label>
+        <label>
+          출사 일시 <span className="check">*</span>
+        </label>
         <input type="date" placeholder="내 답변" name="out_time" />
       </div>
 
       <div className="inputForm">
-        <label>귀사 일시</label>
+        <label>
+          귀사 일시 <span className="check">*</span>
+        </label>
         <input type="date" placeholder="내 답변" name="come_time" />
       </div>
 
       <div className="inputForm">
-        <label>상세 사유</label>
+        <label>
+          상세 사유 <span className="check">*</span>
+        </label>
         <input type="text" placeholder="내 답변" name="reason" />
       </div>
 
       <div className="inputForm">
-        <label>장소</label>
+        <label>
+          장소 <span className="check">*</span>
+        </label>
         <input type="text" placeholder="내 답변" name="place" />
       </div>
 
       <div className="inputForm">
-        <label>증빙 서류</label>
+        <label>
+          증빙 서류 <span className="check">*</span>
+        </label>
         <input type="text" placeholder="내 답변" name="document" />
       </div>
 
@@ -77,7 +95,9 @@ const ApplicationForm = () => {
       </div>
 
       <div className="inputForm">
-        <label>보호자 HP</label>
+        <label>
+          보호자 HP <span className="check">*</span>
+        </label>
         <input type="text" placeholder="내 답변" name="parents_phone" />
       </div>
 
