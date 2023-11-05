@@ -12,23 +12,55 @@ const ApplicationForm = () => {
   const onHandleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (form.current) {
-      emailjs
-        .sendForm(
-          process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
-          process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
-          form.current,
-          process.env.REACT_APP_EMAILJS_PUBLIC_KEY as string
-        )
-        .then(
-          () => {
-            dispatch(isApplicate());
-            // console.log("SUCCESS!", response.status, response.text);
-          },
-          (error) => {
-            console.log("FAILED...", error);
-          }
-        );
+    let isErr: boolean = false;
+
+    const isRequire = [
+      { name: "from_name", label: "이름" },
+      { name: "type", label: "외출, 외박" },
+      { name: "out_time", label: "출사 일시" },
+      { name: "come_time", label: "귀사 일시" },
+      { name: "reason", label: "상세 사유" },
+      { name: "place", label: "장소" },
+      { name: "document", label: "증빙 서류" },
+      { name: "parents_phone", label: "보호자 HP" },
+    ];
+
+    isRequire.forEach((item: any) => {
+      const input = form.current?.elements.namedItem(
+        item.name
+      ) as HTMLInputElement;
+
+      if (input && !input.value.trim()) {
+        isErr = true;
+        input.classList.add("err");
+      } else {
+        input?.classList.remove("err");
+      }
+    });
+
+    if (isErr) {
+      const firstErrFiled = form.current?.querySelector(".err") as HTMLElement;
+
+      if (firstErrFiled) firstErrFiled.scrollIntoView({ behavior: "smooth" });
+    } else {
+      if (form.current) {
+        emailjs
+          .sendForm(
+            process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
+            process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
+            form.current,
+            process.env.REACT_APP_EMAILJS_PUBLIC_KEY as string
+          )
+          .then(
+            () => {
+              dispatch(isApplicate());
+              // console.log("SUCCESS!", response.status, response.text);
+            },
+            (error) => {
+              console.log("FAILED...", error);
+            }
+          );
+      }
     }
   };
 
