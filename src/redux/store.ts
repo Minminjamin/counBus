@@ -1,11 +1,25 @@
 import React from "react";
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import isAllowReducer from "./isAllowSlice/isAllowSlice";
-import isApplicateSlice from "./isApplicateSlice/isApplicateSlice";
+import isApplicateReducer from "./isApplicateSlice/isApplicateSlice";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-export const store = configureStore({
-  reducer: {
-    isAllow: isAllowReducer,
-    isApplicate: isApplicateSlice,
-  },
+const reducers = combineReducers({
+  isAllow: isAllowReducer,
+  isApplicate: isApplicateReducer,
 });
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["isAllow", "isApplicate"],
+};
+
+const persistedReduver = persistReducer(persistConfig, reducers);
+
+const store = configureStore({
+  reducer: persistedReduver,
+});
+
+export default store;
