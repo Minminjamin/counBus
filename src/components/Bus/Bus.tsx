@@ -20,14 +20,25 @@ const Bus = () => {
 
         const result = await res.json();
 
-        result.bus.sort((a: Bus, b: Bus) => {
-          const timeA = new Date(`2023-10-30T${a.time}`);
-          const timeB = new Date(`2023-10-30T${b.time}`);
+        const filterBus = result.bus
+          .filter((item: Bus) => {
+            const now = new Date();
+            const current = now.getHours() * 60 + now.getMinutes();
 
-          return timeA.getTime() - timeB.getTime();
-        });
+            const busTime = new Date(`2023-10-30T${item.time}`);
+            const busDepartureTime =
+              busTime.getHours() * 60 + busTime.getMinutes();
 
-        setBus(result.bus);
+            return busDepartureTime >= current; //분 단위로 변환해서 비교
+          })
+          .sort((a: Bus, b: Bus) => {
+            const timeA = new Date(`2023-10-30T${a.time}`);
+            const timeB = new Date(`2023-10-30T${b.time}`);
+
+            return timeA.getTime() - timeB.getTime();
+          });
+
+        setBus(filterBus);
       } catch (error) {
         console.log(error);
       }
