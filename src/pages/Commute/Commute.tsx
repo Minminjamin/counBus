@@ -20,8 +20,14 @@ const Commute = () => {
         navigate("/login");
       }
 
-      if (user && user.email?.split("@")[0].slice(-1) === "d") {
-        navigate("/dormitory");
+      if (user && user.email) {
+        const userId: string = user.email?.split("@")[0].slice(-1);
+
+        if (userId === "t") {
+          navigate("/manage");
+        } else {
+          navigate("/dormitory");
+        }
       }
 
       return () => {

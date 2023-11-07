@@ -12,9 +12,13 @@ const Main = () => {
     const auth = getAuth();
 
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        if (user.email?.split("@")[0].slice(-1) === "d") {
+      if (user && user.email) {
+        const userId: string = user.email?.split("@")[0].slice(-1);
+
+        if (userId === "d") {
           navigate("/dormitory");
+        } else if (userId === "t") {
+          navigate("/manage");
         } else {
           navigate("/commute");
         }

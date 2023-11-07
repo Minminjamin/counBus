@@ -28,8 +28,14 @@ const Dormitory = () => {
         navigate("/login");
       }
 
-      if (user && user.email?.split("@")[0].slice(-1) === "c") {
-        navigate("/commute");
+      if (user && user.email) {
+        const userId: string = user.email?.split("@")[0].slice(-1);
+
+        if (userId === "t") {
+          navigate("/manage");
+        } else {
+          navigate("/commute");
+        }
       }
 
       return () => {
