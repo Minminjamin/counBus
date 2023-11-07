@@ -22,4 +22,9 @@ const store = configureStore({
   reducer: persistedReduver,
 });
 
+export interface ReduxState {
+  isAllow: ReturnType<typeof isAllowReducer>;
+  isApplicate: ReturnType<typeof isApplicateReducer>;
+}
+
 export default store;

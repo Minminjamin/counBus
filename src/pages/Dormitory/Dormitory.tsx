@@ -8,12 +8,15 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { isAllow } from "../../redux/isAllowSlice/isAllowSlice";
 import { isApplicate } from "../../redux/isApplicateSlice/isApplicateSlice";
+import { ReduxState } from "../../redux/store";
 
 const Dormitory = () => {
   const dispatch = useDispatch();
 
-  const isAllowState = useSelector((state: any) => state.isAllow.value);
-  const isApplicateState = useSelector((state: any) => state.isApplicate.value);
+  const isAllowState = useSelector((state: ReduxState) => state.isAllow.value);
+  const isApplicateState = useSelector(
+    (state: ReduxState) => state.isApplicate.value
+  );
 
   const navigate = useNavigate();
 

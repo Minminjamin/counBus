@@ -5,9 +5,10 @@ import "./Commute.scss";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ReduxState } from "../../redux/store";
 
 const Commute = () => {
-  const isAllow = useSelector((state: any) => state.isAllow.value);
+  const isAllow = useSelector((state: ReduxState) => state.isAllow.value);
 
   const navigate = useNavigate();
 
