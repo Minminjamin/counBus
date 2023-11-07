@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./ApplicationForm.scss";
-import emailjs from "@emailjs/browser";
 import { useDispatch } from "react-redux";
 import { isApplicate } from "../../redux/isApplicateSlice/isApplicateSlice";
 import { doc, setDoc } from "firebase/firestore";
 import { firestore } from "../../libs/Firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
 interface FirebaseData {
   class: number;
@@ -23,7 +21,6 @@ interface FirebaseData {
 
 const ApplicationForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [classNum, setClassNum] = useState<number>(0);
 
