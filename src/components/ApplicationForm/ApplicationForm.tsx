@@ -103,7 +103,7 @@ const ApplicationForm = () => {
         });
 
         const date = new Date();
-        const time = `${date.getMinutes()}${date.getSeconds()}`;
+        const time = `${date.getDate()}${date.getHours()}${date.getMinutes()}${date.getSeconds()}`;
 
         setDoc(
           doc(firestore, "student_data", `${classNum}${time}`),
