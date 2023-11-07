@@ -19,6 +19,11 @@ interface FirebaseData {
   home_address?: string;
 }
 
+interface FormField {
+  name: string;
+  label: string;
+}
+
 const ApplicationForm = () => {
   const dispatch = useDispatch();
 
@@ -47,7 +52,7 @@ const ApplicationForm = () => {
 
     let isErr: boolean = false;
 
-    const isRequire = [
+    const isRequire: FormField[] = [
       { name: "from_name", label: "이름" },
       { name: "type", label: "외출, 외박" },
       { name: "out_time", label: "출사 일시" },
@@ -58,7 +63,7 @@ const ApplicationForm = () => {
       { name: "parents_phone", label: "보호자 HP" },
     ];
 
-    isRequire.forEach((item: any) => {
+    isRequire.forEach((item: FormField) => {
       const input = form.current?.elements.namedItem(
         item.name
       ) as HTMLInputElement;
