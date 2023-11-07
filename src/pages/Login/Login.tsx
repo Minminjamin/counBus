@@ -90,9 +90,9 @@ const Login = () => {
 
   return (
     <form className="wrap" onSubmit={onHanldeLogin}>
-      <input placeholder="id" ref={id} />
+      <input placeholder="id" ref={id} type="text" />
       {error.id && <span className="checkInput">{error.id}</span>}
-      <input placeholder="password" ref={pw} />
+      <input placeholder="password" ref={pw} type="password" />
       {error.pw && <span className="checkInput">{error.pw}</span>}
 
       {error.check && <span className="checkInput">{error.check}</span>}
