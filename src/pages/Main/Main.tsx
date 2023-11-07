@@ -17,7 +17,7 @@ const Main = () => {
 
         if (userId === "d") {
           navigate("/dormitory");
-        } else if (userId === "t") {
+        } else if (userId === "t" || userId === "m") {
           navigate("/manage");
         } else {
           navigate("/commute");

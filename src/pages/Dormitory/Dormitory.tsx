@@ -31,7 +31,7 @@ const Dormitory = () => {
       if (user && user.email) {
         const userId: string = user.email?.split("@")[0].slice(-1);
 
-        if (userId === "t") {
+        if (userId === "t" || userId === "m") {
           navigate("/manage");
         } else {
           navigate("/commute");
