@@ -12,8 +12,8 @@ import { isApplicate } from "../../redux/isApplicateSlice/isApplicateSlice";
 const Dormitory = () => {
   const dispatch = useDispatch();
 
-  const isAllowState = useSelector((state) => state.isAllow.value);
-  const isApplicateState = useSelector((state) => state.isApplicate.value);
+  const isAllowState = useSelector((state: any) => state.isAllow.value);
+  const isApplicateState = useSelector((state: any) => state.isApplicate.value);
 
   const navigate = useNavigate();
 
