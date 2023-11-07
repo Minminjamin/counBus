@@ -2,6 +2,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Download from "../../components/Download/Download";
 import StudentsOutList from "../../components/StudentsOutList/StudentsOutList";
 import { firestore } from "../../libs/Firebase";
 import "./Manage.scss";
@@ -9,7 +10,7 @@ import "./Manage.scss";
 const Manage = () => {
   const navigate = useNavigate();
 
-  const [dbData, setDbData] = useState<any>([]);
+  const [isDown, setIsDown] = useState<boolean>(false);
 
   useEffect(() => {
     const auth = getAuth();
@@ -37,7 +38,7 @@ const Manage = () => {
 
   return (
     <div className="managewrap">
-      <StudentsOutList />
+      {!isDown ? <StudentsOutList setIsDown={setIsDown} /> : <Download />}
     </div>
   );
 };

@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 import { firestore } from "../../libs/Firebase";
 import "./StudentsOutList.scss";
 
-const StudentsOutList = () => {
+const StudentsOutList = ({
+  setIsDown,
+}: {
+  setIsDown: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [dbData, setDbData] = useState<any>([]);
 
   useEffect(() => {
@@ -48,7 +52,7 @@ const StudentsOutList = () => {
         </div>
 
         <div className="btnSet">
-          <button>다운로드</button>
+          <button onClick={() => setIsDown(true)}>다운로드</button>
         </div>
       </section>
     </div>
