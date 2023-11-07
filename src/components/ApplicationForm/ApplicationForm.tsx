@@ -37,7 +37,7 @@ const ApplicationForm = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const loginClassNum: number = Number(
-          user.email?.split("@")[0].slice(5, 8)
+          user.email?.split("@")[0].slice(5, 9)
         );
         setClassNum(loginClassNum);
       }
