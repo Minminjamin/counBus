@@ -33,7 +33,7 @@ const Dormitory = () => {
 
         if (userId === "t" || userId === "m") {
           navigate("/manage");
-        } else {
+        } else if (userId === "c") {
           navigate("/commute");
         }
       }
