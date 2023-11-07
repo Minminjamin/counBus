@@ -1,13 +1,49 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ApplicationForm.scss";
 import emailjs from "@emailjs/browser";
 import { useDispatch } from "react-redux";
 import { isApplicate } from "../../redux/isApplicateSlice/isApplicateSlice";
+import { doc, setDoc } from "firebase/firestore";
+import { firestore } from "../../libs/Firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
+interface FirebaseData {
+  class: number;
+  come_time: string;
+  document: string;
+  from_name: string;
+  out_time: string;
+  parents_phone: string;
+  place: string;
+  reason: string;
+  type: string;
+  home_address?: string;
+}
 
 const ApplicationForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [classNum, setClassNum] = useState<number>(0);
 
   const form = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const loginClassNum: number = Number(
+          user.email?.split("@")[0].slice(5, 8)
+        );
+        setClassNum(loginClassNum);
+      }
+      return () => {
+        unsubscribe();
+      };
+    });
+  }, []);
 
   const onHandleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,22 +80,40 @@ const ApplicationForm = () => {
       if (firstErrFiled) firstErrFiled.scrollIntoView({ behavior: "smooth" });
     } else {
       if (form.current) {
-        emailjs
-          .sendForm(
-            process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
-            process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
-            form.current,
-            process.env.REACT_APP_EMAILJS_PUBLIC_KEY as string
-          )
-          .then(
-            () => {
-              dispatch(isApplicate());
-              // console.log("SUCCESS!", response.status, response.text);
-            },
-            (error) => {
-              console.log("FAILED...", error);
-            }
-          );
+        let firebaseData: FirebaseData = {
+          class: classNum,
+          come_time: "",
+          document: "",
+          from_name: "",
+          out_time: "",
+          parents_phone: "",
+          place: "",
+          reason: "",
+          type: "",
+        };
+
+        isRequire.forEach((item) => {
+          const data = form.current?.elements.namedItem(
+            item.name
+          ) as HTMLInputElement;
+
+          (firebaseData as any)[item.name] = data.value;
+        });
+
+        const date = new Date();
+        const time = `${date.getMinutes()}${date.getSeconds()}`;
+
+        setDoc(
+          doc(firestore, "student_data", `${classNum}${time}`),
+          firebaseData
+        ).then(
+          () => {
+            dispatch(isApplicate());
+          },
+          (error) => {
+            console.log("FAILED...", error);
+          }
+        );
       }
     }
   };
@@ -83,7 +137,6 @@ const ApplicationForm = () => {
           <option value="외출">외출</option>
           <option value="외박">외박</option>
         </select>
-        {/* <input type="text" placeholder="내 답변" name="type" /> */}
       </div>
 
       <div className="inputForm">

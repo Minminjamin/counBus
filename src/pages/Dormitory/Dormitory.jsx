@@ -25,7 +25,7 @@ const Dormitory = () => {
         navigate("/login");
       }
 
-      if (user && user.email?.split("@")[0].slice(-1) === "ㅊ") {
+      if (user && user.email?.split("@")[0].slice(-1) === "c") {
         navigate("/commute");
       }
 
