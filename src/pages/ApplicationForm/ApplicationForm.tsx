@@ -129,7 +129,8 @@ const ApplicationForm = () => {
           firebaseData
         ).then(
           () => {
-            dispatch(isApplicate());
+            alert("정상적으로 신청서가 제출되었습니다.");
+            navigate("/menu");
           },
           (error) => {
             console.log("FAILED...", error);
