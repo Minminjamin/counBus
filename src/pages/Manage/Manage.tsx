@@ -3,6 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Download from "../../components/Download/Download";
+import LogoutLayout from "../../components/LogoutLayout/LogoutLayout";
 import StudentsOutList from "../../components/StudentsOutList/StudentsOutList";
 import { firestore } from "../../libs/Firebase";
 import "./Manage.scss";
@@ -37,9 +38,9 @@ const Manage = () => {
   }, []);
 
   return (
-    <div className="managewrap">
+    <LogoutLayout>
       {!isDown ? <StudentsOutList setIsDown={setIsDown} /> : <Download />}
-    </div>
+    </LogoutLayout>
   );
 };
 

@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { isAllow } from "../../redux/isAllowSlice/isAllowSlice";
 import { isApplicate } from "../../redux/isApplicateSlice/isApplicateSlice";
 import { ReduxState } from "../../redux/store";
+import LogoutLayout from "../../components/LogoutLayout/LogoutLayout";
 
 const Dormitory = () => {
   const dispatch = useDispatch();
@@ -50,7 +51,8 @@ const Dormitory = () => {
   };
 
   return (
-    <div className="dormitoryWrap">
+    <LogoutLayout>
+      {/* <div className="dormitoryWrap"> */}
       {!isAllowState ? (
         <Warning>
           <span>사감 선생님 및 담임선생님께</span>
@@ -64,7 +66,8 @@ const Dormitory = () => {
       ) : (
         <ApplicationForm />
       )}
-    </div>
+      {/* </div> */}
+    </LogoutLayout>
   );
 };
 

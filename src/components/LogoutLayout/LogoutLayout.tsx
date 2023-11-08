@@ -16,7 +16,7 @@ const LogoutLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="logoutLayoutWrap">
-      {children}
+      <div className="childrenWrap">{children}</div>
       <button onClick={onHandleClickLogout}>Logout</button>
     </div>
   );
