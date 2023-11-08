@@ -19,6 +19,10 @@
       border-radius: 5px;
       background: red;
       color: white;
+
+      &:hover {
+        background: #a10000;
+      }
     }
   }
 }
