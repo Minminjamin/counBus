@@ -1,11 +1,9 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Download from "../../components/Download/Download";
 import LogoutLayout from "../../components/LogoutLayout/LogoutLayout";
 import StudentsOutList from "../../components/StudentsOutList/StudentsOutList";
-import { firestore } from "../../libs/Firebase";
 import "./Manage.scss";
 
 const Manage = () => {
@@ -24,10 +22,10 @@ const Manage = () => {
       if (user && user.email) {
         const userId: string = user.email?.split("@")[0].slice(-1);
 
-        if (userId === "d") {
-          navigate("/dormitory");
-        } else if (userId === "c") {
-          navigate("/commute");
+        if (userId === "t" || userId === "m") {
+          return null;
+        } else {
+          navigate("/menu");
         }
       }
 

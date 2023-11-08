@@ -29,12 +29,10 @@ const Login = () => {
       if (user && user.email) {
         const userId: string = user.email?.split("@")[0].slice(-1);
 
-        if (userId === "d") {
-          navigate("/dormitory");
-        } else if (userId === "t" || userId === "m") {
+        if (userId === "t" || userId === "m") {
           navigate("/manage");
         } else {
-          navigate("/commute");
+          navigate("/menu");
         }
       } else {
         return null;
@@ -61,10 +59,10 @@ const Login = () => {
           `${idValue}@robotsh.com`,
           pwValue
         ).then(() => {
-          if (idValue.slice(-1) === "d") {
-            navigate("/dormitory");
-          } else if (idValue.slice(-1) === "c") {
-            navigate("/commute");
+          if (idValue.slice(-1) === "t" || idValue.slice(-1) === "m") {
+            navigate("/manage");
+          } else {
+            navigate("/menu");
           }
         });
       } catch (err: any) {

@@ -15,12 +15,10 @@ const Main = () => {
       if (user && user.email) {
         const userId: string = user.email?.split("@")[0].slice(-1);
 
-        if (userId === "d") {
-          navigate("/dormitory");
-        } else if (userId === "t" || userId === "m") {
+        if (userId === "t" || userId === "m") {
           navigate("/manage");
         } else {
-          navigate("/commute");
+          navigate("/menu");
         }
       } else {
         setTimeout(() => {

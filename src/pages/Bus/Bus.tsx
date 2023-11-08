@@ -1,4 +1,6 @@
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Bus.scss";
 
 const path = process.env.PUBLIC_URL;
@@ -12,6 +14,8 @@ interface Bus {
 
 const Bus = () => {
   const [bus, setBus] = useState<Bus[]>([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBusData = async () => {
@@ -45,6 +49,20 @@ const Bus = () => {
     };
 
     fetchBusData();
+  }, []);
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate("/login");
+      }
+
+      return () => {
+        unsubscribe();
+      };
+    });
   }, []);
 
   return (

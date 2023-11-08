@@ -5,6 +5,7 @@ import { isApplicate } from "../../redux/isApplicateSlice/isApplicateSlice";
 import { doc, setDoc } from "firebase/firestore";
 import { firestore } from "../../libs/Firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 interface FirebaseData {
   class: number;
@@ -31,16 +32,25 @@ const ApplicationForm = () => {
 
   const form = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    const auth = getAuth();
+  const auth = getAuth();
+  const navigate = useNavigate();
 
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const loginClassNum: number = Number(
-          user.email?.split("@")[0].slice(5, 9)
-        );
-        setClassNum(loginClassNum);
+      if (!user) {
+        navigate("/login");
       }
+
+      if (user && user.email) {
+        const userId: string = user.email?.split("@")[0].slice(-1);
+
+        if (userId === "c") {
+          navigate("/menu");
+        } else if (userId === "d") {
+          return null;
+        }
+      }
+
       return () => {
         unsubscribe();
       };
@@ -49,6 +59,15 @@ const ApplicationForm = () => {
 
   const onHandleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const loginClassNum: number = Number(
+          user.email?.split("@")[0].slice(5, 9)
+        );
+        setClassNum(loginClassNum);
+      }
+    });
 
     let isErr: boolean = false;
 
