@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { firestore } from "../../libs/Firebase";
 import "./StudentsOutList.scss";
@@ -8,6 +8,7 @@ const StudentsOutList = ({
 }: {
   setIsDown: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const [dbDataId, setDbDataId] = useState([]);
   const [dbData, setDbData] = useState<any>([]);
 
   useEffect(() => {
@@ -16,17 +17,29 @@ const StudentsOutList = ({
         collection(firestore, "student_data")
       );
 
+      const id: any = [];
       const data: any = [];
 
       querySnapshot.forEach((doc) => {
+        id.push(doc.id);
         data.push(doc.data());
       });
 
+      setDbDataId(id);
       setDbData(data);
     };
 
     fetchData();
   }, []);
+
+  const onHandleClickDelete = async (id: any) => {
+    try {
+      await deleteDoc(doc(firestore, "student_data", id));
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="studentsOutListWrap">
@@ -46,7 +59,11 @@ const StudentsOutList = ({
                 <span>{item.out_time}</span>
                 <span>{item.reason.slice(0, 8)}</span>
 
-                <button>삭제</button>
+                <button
+                  onClick={() => onHandleClickDelete(dbDataId[parseInt(idx)])}
+                >
+                  삭제
+                </button>
               </section>
             ))}
         </div>
