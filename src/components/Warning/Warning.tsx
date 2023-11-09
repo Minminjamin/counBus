@@ -1,13 +1,9 @@
 import React, { ReactNode } from "react";
 import "./Warning.scss";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { isAllow } from "../../redux/isAllowSlice/isAllowSlice";
 
 const Warning = ({ children }: { children: ReactNode }) => {
   const navitage = useNavigate();
-
-  const dispatch = useDispatch();
 
   return (
     <div className="wraningWrap">
@@ -17,7 +13,7 @@ const Warning = ({ children }: { children: ReactNode }) => {
 
         <div className="btn">
           <span onClick={() => navitage("/permission")}>취소</span>
-          <span onClick={() => dispatch(isAllow())}>계속</span>
+          <span>계속</span>
         </div>
       </section>
     </div>

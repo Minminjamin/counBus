@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./ApplicationForm.scss";
-import { useDispatch } from "react-redux";
-import { isApplicate } from "../../redux/isApplicateSlice/isApplicateSlice";
 import { doc, setDoc } from "firebase/firestore";
 import { firestore } from "../../libs/Firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -26,8 +24,6 @@ interface FormField {
 }
 
 const ApplicationForm = () => {
-  const dispatch = useDispatch();
-
   const [classNum, setClassNum] = useState<number>(0);
 
   const form = useRef<HTMLFormElement>(null);
