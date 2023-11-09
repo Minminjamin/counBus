@@ -209,7 +209,7 @@ const ApplicationForm = () => {
       </div>
 
       <div className="btn">
-        <button>수정</button>
+        <button type="reset">리셋</button>
         <button type="submit">제출</button>
       </div>
     </form>
