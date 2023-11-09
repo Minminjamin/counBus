@@ -4,19 +4,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { firestore } from "../../libs/Firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
-interface FirebaseData {
-  class: number;
-  come_time: string;
-  document: string;
-  from_name: string;
-  out_time: string;
-  parents_phone: string;
-  place: string;
-  reason: string;
-  type: string;
-  home_address?: string;
-}
+import type { FirebaseData } from "../../type/FirebaseData";
 
 interface FormField {
   name: string;

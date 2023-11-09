@@ -3,13 +3,26 @@ import React, { useEffect, useState } from "react";
 import { firestore } from "../../libs/Firebase";
 import "./StudentsOutList.scss";
 
+interface FirebaseData {
+  class: number;
+  come_time: string;
+  document: string;
+  from_name: string;
+  out_time: string;
+  parents_phone: string;
+  place: string;
+  reason: string;
+  type: string;
+  home_address?: string;
+}
+
 const StudentsOutList = ({
   setIsDown,
 }: {
   setIsDown: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const [dbDataId, setDbDataId] = useState([]);
-  const [dbData, setDbData] = useState<any>([]);
+  const [dbDataId, setDbDataId] = useState<string[]>([]);
+  const [dbData, setDbData] = useState<FirebaseData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,12 +30,12 @@ const StudentsOutList = ({
         collection(firestore, "student_data")
       );
 
-      const id: any = [];
-      const data: any = [];
+      const id: string[] = [];
+      const data: FirebaseData[] = [];
 
       querySnapshot.forEach((doc) => {
         id.push(doc.id);
-        data.push(doc.data());
+        data.push(doc.data() as FirebaseData);
       });
 
       setDbDataId(id);
@@ -32,7 +45,7 @@ const StudentsOutList = ({
     fetchData();
   }, []);
 
-  const onHandleClickDelete = async (id: any) => {
+  const onHandleClickDelete = async (id: string) => {
     try {
       await deleteDoc(doc(firestore, "student_data", id));
       window.location.reload();
@@ -53,15 +66,13 @@ const StudentsOutList = ({
 
         <div className="studentInfoWrap">
           {dbData &&
-            dbData.map((item: any, idx: string) => (
+            dbData.map((item: FirebaseData, idx: number) => (
               <section key={idx} className="info">
                 <span>{item.class}</span>
                 <span>{item.out_time}</span>
                 <span>{item.reason.slice(0, 8)}</span>
 
-                <button
-                  onClick={() => onHandleClickDelete(dbDataId[parseInt(idx)])}
-                >
+                <button onClick={() => onHandleClickDelete(dbDataId[idx])}>
                   삭제
                 </button>
               </section>

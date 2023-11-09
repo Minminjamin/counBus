@@ -5,9 +5,10 @@ import { firestore } from "../../libs/Firebase";
 import "./Download.scss";
 import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
+import type { FirebaseData } from "../../type/FirebaseData";
 
 const Download = () => {
-  const [yearDate, setYearDate] = useState([]);
+  const [yearDate, setYearDate] = useState<string[]>([]);
 
   useEffect(() => {
     const startYear = 2023;
@@ -16,7 +17,7 @@ const Download = () => {
     const endYear = date.getFullYear();
     const endMonth = date.getMonth() + 1;
 
-    const months: any = [];
+    const months: string[] = [];
 
     for (let year = startYear; year <= endYear; year++) {
       const startMonth = year === startYear ? 10 : 1; // year 가 startYear 와 같을 경우, 시작 월을 10으로 설정하고, 그렇지 않으면 시작 월을 1로 설정
@@ -64,7 +65,7 @@ const Download = () => {
       "보호자 전화번호",
     ]);
 
-    data.forEach((item: any) => {
+    data.forEach((item: FirebaseData) => {
       worksheet.addRow([
         item.class,
         item.from_name,
