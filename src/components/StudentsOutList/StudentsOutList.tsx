@@ -68,7 +68,7 @@ const StudentsOutList = ({
             ))}
         </div>
 
-        <div className="btnSet">
+        <div className="downloadBtnSet">
           <button onClick={() => setIsDown(true)}>다운로드</button>
         </div>
       </section>

@@ -60,6 +60,7 @@
           color: white;
           border: none;
           padding: 1%;
+          border-radius: 5px;
 
           &:hover {
             background: #a10000;
@@ -69,7 +70,7 @@
     }
   }
 
-  .btnSet {
+  .downloadBtnSet {
     display: flex;
     justify-content: flex-end;
     padding-right: 2%;
@@ -80,6 +81,7 @@
       color: white;
       padding: 1%;
       border: none;
+      border-radius: 5px;
 
       &:hover {
         background: #007b00;
