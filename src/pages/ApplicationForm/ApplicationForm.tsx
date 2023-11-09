@@ -41,6 +41,12 @@ const ApplicationForm = () => {
         navigate("/login");
       }
 
+      if (user) {
+        const loginClassNum: number = Number(
+          user.email?.split("@")[0].slice(5, 9)
+        );
+        setClassNum(loginClassNum);
+      }
       if (user && user.email) {
         const userId: string = user.email?.split("@")[0].slice(-1);
 
@@ -59,15 +65,6 @@ const ApplicationForm = () => {
 
   const onHandleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const loginClassNum: number = Number(
-          user.email?.split("@")[0].slice(5, 9)
-        );
-        setClassNum(loginClassNum);
-      }
-    });
 
     let isErr: boolean = false;
 
