@@ -53,6 +53,13 @@ const Login = () => {
       const idValue: string = id.current.value.trim();
       const pwValue: string = pw.current.value.trim();
 
+      if (!id.current?.value) {
+        setError((prev) => ({ ...prev, id: "id를 입력해주세요." }));
+      }
+      if (!pw.current?.value) {
+        setError((prev) => ({ ...prev, pw: "password를 입력해주세요." }));
+      }
+
       try {
         await signInWithEmailAndPassword(
           auth,
@@ -76,13 +83,6 @@ const Login = () => {
           }));
         }
       }
-    }
-
-    if (!id.current?.value) {
-      setError((prev) => ({ ...prev, id: "id를 입력해주세요." }));
-    }
-    if (!pw.current?.value) {
-      setError((prev) => ({ ...prev, pw: "password를 입력해주세요." }));
     }
   };
 
